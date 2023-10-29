@@ -4,6 +4,7 @@
 
 @using BlazorServerDemo.Data
 @inject IWeatherForecastService ForecastService
+@inject Demo _demo
 
 <h1>Weather forecast</h1>
 
@@ -43,6 +44,6 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+        forecasts = await ForecastService.GetForecastAsync(_demo.StartupTime);
     }
 }

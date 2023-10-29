@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
 builder.Services.AddSingleton<IWeatherForecastService, WeatherForecastService>();
+builder.Services.AddTransient<Demo>();
 
 var app = builder.Build();
 
