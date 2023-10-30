@@ -1,12 +1,12 @@
 ﻿namespace BlazorServerDemo.Data
 {
-    public class Demo : IDemo, ILocalDemo
+    public class UtcDemo : IDemo, IUtcDemo
     {
         public DateTime StartupTime { get; init; }
 
-        public Demo()
+        public UtcDemo()
         {
-            this.StartupTime = DateTime.Now;
+            StartupTime = DateTime.UtcNow;
         }
     }
 }

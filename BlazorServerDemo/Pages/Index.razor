@@ -1,11 +1,23 @@
 ﻿@page "/"
 
-@inject Demo _demo
+@inject IDemo _demo
+@inject IEnumerable<IDemo> _demos
 
 <PageTitle>Index</PageTitle>
 
 <h1>Hello, world!</h1>
 
-<h2>Demo time: @_demo.StartupTime.ToString("hh:mm:ss ffffff")</h2>
+@foreach (var demo in _demos)
+{
+    
+    @if (demo is ILocalDemo)
+    {
+        <p>Demo: @demo.StartupTime</p>
+    }
 
-Welcome to your new app.
+    @if (demo is IUtcDemo)
+    {
+        <p>Utc Demo: @demo.StartupTime</p>
+
+    }
+}
